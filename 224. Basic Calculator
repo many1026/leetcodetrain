@@ -1,0 +1,43 @@
+Given a string s representing a valid expression, implement a basic calculator to evaluate it, and return the result of the evaluation.
+
+Example 1:
+
+Input: s = "1 + 1"
+Output: 2
+
+Que entendí del problema?
+(importante es CON parentesis)
+voy a recibir un str, regreso un int
+brute force sol: voy a tener un for que recorra el arreglo, dentro de este for voy a ir guardando de izq a der los numeros en una lista, con sus respectivos signs.
+ej.
+1 + 1
+leo todo el arreglo, guardo 1, despues veo que no hay otro digito junto, espero que haya un signo, lo hay y es "+", entonces si es +, se que será a[0] + a[2].
+regreso el res. 
+que pasa si empieza con un espacio y no con un numero?
+pongo una regla que elimine los espacios, un replace() pq no me interesa si tiene o no espacios.
+que pasa si tengo parentesis?
+si hay parentesis tengo que ver la jerarquia de estos. (p1(p2))sign(p3) si estuvieran en este orden tendria que hacer p2, p1, p3.
+como lo puedo hacer?
+si ves un parentesis quiero que lo vayas trackeando hasta que se cierra, como buscar su par...
+por ejemplo, si estoy en el caso de arriba, me sale p1izq...p2izq...p2der...como ahi veo que ya se cerró un par de parentesis 
+deberia de empezar por estos ya que como sabemos la jerarquia de aritmetica va de izq a der en parentesis
+
+entonces puedo proceder a leer y obtener un resultado, despues que hago?
+una vez con el res, si lo identifico como solucion local sigo haciendolo hasta obtener la sol glob
+si identifico un piizq sin su par, entonces significa que no esta la sol completa, seguire buscando
+ahora avanzamos con p1izq...res1...p1der resuelvo y sigo
+res2...sign....p3izq...p3der
+primero los parentesis, 
+res2...sign...res3
+resfinal
+que bucle uso? quiero recorrer todo el arreglo entonces un for
+y ademas quiero checar para edge cases que son: si tienen +1, -3 es valido tengo que considerar eso.
+si tienen -() es invalido.
+no pueden +- consecutivos.
+
+
+
+
+
+
+
